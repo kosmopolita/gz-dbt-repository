@@ -7,6 +7,7 @@ SELECT
     ROUND(SUM(operation_margin), 2) AS operation_margin,
     ROUND(SUM(purchase_cost), 2) AS purchase_cost,
     ROUND(SUM(shipping_fee), 2) AS shipping_fee,
+    ROUND(SUM(ship_cost), 2) AS ship_cost,
     ROUND(SUM(log_cost), 2) AS log_cost,
     SUM(quantity) AS quantity,
 FROM {{ ref('int_orders_operational')}}
