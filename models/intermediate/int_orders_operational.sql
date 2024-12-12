@@ -7,6 +7,7 @@ SELECT
     ROUND(SUM(purchase_cost), 2) AS purchase_cost,
     ROUND(SUM(shipping_fee), 2) AS shipping_fee,
     ROUND(SUM(log_cost), 2) AS log_cost,
+    ROUND(SUM(ship_cost), 2) AS ship_cost,
     ROUND(SUM(margin), 2) AS margin,
 FROM {{ ref('int_orders_margin')}}
 JOIN {{ ref('stg_raw__ship')}} USING (orders_id)

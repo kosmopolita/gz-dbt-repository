@@ -2,9 +2,9 @@
 
 SELECT
     date_date AS date,
-    ROUND(operation_margin - ads_cost, 2) AS ads_margin,
+    ROUND(operation_margin - ads_cost, 1) AS ads_margin,
     average_basket,
-    operation_margin,
+    ROUND(operation_margin, 1) AS operation_margin,
     ads_cost,
     ads_impression,
     ads_click,
@@ -17,4 +17,5 @@ SELECT
     ship_cost,
 FROM {{ ref('finance_days')}}
 JOIN {{ ref('int_campaigns_day')}} USING (date_date)
+ORDER BY date DESC
     
